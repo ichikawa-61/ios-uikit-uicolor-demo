@@ -23,7 +23,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         imageView.isHidden = true
         
-        predefinedColor()
+        patternImage()
+        customColor()
         
         // output UIColor
         sampleView.backgroundColor = color
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
     
     /// カラーパレットでUIColorオブジェクトの色を設定する
     private func colorLiteral() {
-        color = #colorLiteral(red: 0.8784313725, green: 0.3137254902, blue: 0.6588235294, alpha: 1) // (r, g, b) = (224, 80, 168)
+        color = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1) // (r, g, b) = (224, 80, 168)
     }
     
     /// 定義済みの色を使用してUIColorオブジェクト生成する
@@ -52,6 +53,10 @@ class ViewController: UIViewController {
     private func patternImage() {
         guard let image = UIImage(named: "Dog") else { return }
         color = UIColor(patternImage: image)
+        imageView.image = image
+        imageView.isHidden = false
+
+        
     }
     
     /// CIColorからUIColorオブジェクトを生成する
@@ -74,7 +79,7 @@ class ViewController: UIViewController {
     
     /// 指定したサイズを塗りつぶしたイメージを生成する
     private func imageFilledRect() {
-        let fillColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        let fillColor = #colorLiteral(red: 1, green: 0.8924254179, blue: 0.9758084416, alpha: 1)
         let sampleViewRect = sampleView.frame
         
         UIGraphicsBeginImageContext(sampleViewRect.size)
